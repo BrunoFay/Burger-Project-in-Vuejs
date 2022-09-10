@@ -28,7 +28,7 @@ header {
 .nav-container{
   display: flex;
   align-items: center ;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2.5rem;
   justify-content: space-between;
 }
 .nav-container nav {

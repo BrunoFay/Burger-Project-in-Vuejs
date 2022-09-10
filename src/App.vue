@@ -29,11 +29,8 @@
   box-sizing: border-box;
   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
   font-family: 'Roboto', 'Helvetica',sans-serif;
+  overflow-x: hidden;
 }
 
-body{
 
-  background : url('https://images2.alphacoders.com/901/901414.jpg') no-repeat;
-  background-size:  100vw 950px;
-}
 </style>
