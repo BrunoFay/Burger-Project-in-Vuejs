@@ -1,81 +1,39 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+  import {RouterView } from 'vue-router'
+</script>
+<script>
+  import Navbar from './components/Navbar.vue';
+  import CFooter from './components/Footer.vue';
+
+  export default {
+    components:{
+      Navbar,
+      CFooter,
+    }
+  }
+
 </script>
 
 <template>
-  <header>
-    <div class="wrapper">
-      <HelloWorld message="Hello world Vue!" />
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/orders">Orders</RouterLink>
-      </nav>
-    </div>
-  </header>
-
+  <Navbar/>
   <RouterView />
+  <CFooter/>
+
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+  font-family: 'Roboto', 'Helvetica',sans-serif;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+body{
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+  background : url('https://images2.alphacoders.com/901/901414.jpg') no-repeat;
+  background-size:  100vw 950px;
 }
 </style>
