@@ -1,11 +1,7 @@
 <template>
 <footer>
   <div class="footer-container">
-   <div>
-      <a href="">Contact</a>
-      <a href="">Location</a>
-   </div>
-    <a href="">any</a>
+   <span>Thanks for visiting burger world!</span>
   </div>
 </footer>
 </template>
@@ -28,12 +24,8 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.footer-container a{
+.footer-container span{
   color: #fcba03;
 }
-.footer-container > div{
-  display:flex;
- flex-direction: column;
- gap:1rem;
-}
+
 </style>
