@@ -1,5 +1,6 @@
 <template>
   <div id="burger-table" v-if="burgers">
+
     <div>
       <div id="burger-table-heading">
         <div class="order-id">#:</div>
@@ -21,7 +22,7 @@
             <li>{{ optional }}</li>
           </ul>
         </div>
-        <div>
+        <div class="action-row">
           <select name="status" class="status" @change="updateBurger($event, burger.id)">
             <option :value="s.type" v-for="s in status" :key="s.id" :selected="burger.status == s.type">
               {{ s.type }}
@@ -86,7 +87,7 @@
 <style scoped>
   #burger-table {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 5rem auto;
   }
   #burger-table-heading,
   #burger-table-rows,
@@ -124,12 +125,15 @@ button{
   padding: 8px 10px;
   margin:0 auto;
   transition: ease-in 0.2s;
+  border-radius: 4px;
 }
 button:hover{
   background: rgb(167, 4, 4);
   color:white;
   border: 2px solid transparent;
-
-
+}
+.action-row{
+  display: flex;
+  gap: 1rem;
 }
 </style>

@@ -14,12 +14,10 @@
 </script>
 <style>
 .dash-container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
   height: 80vh;
 }
-
+.dash-container h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
 </style>

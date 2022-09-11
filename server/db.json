@@ -77,5 +77,17 @@
       "type": "Finished"
     }
   ],
-  "burgers": []
+  "burgers": [
+    {
+      "name": "a",
+      "meat": "Veggie burger",
+      "bread": "Parmesão e Orégano",
+      "optionals": [
+        "Cheddar",
+        "Bacon"
+      ],
+      "status": "requested",
+      "id": 1
+    }
+  ]
 }

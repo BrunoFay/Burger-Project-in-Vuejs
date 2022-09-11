@@ -62,7 +62,7 @@
       },
       async createBurger(){
           const newBurger= {
-            name:this.name,
+            name:this.clientName,
             meat:this.meat,
             bread:this.bread,
             optionals:Array.from(this.optionals),
@@ -77,7 +77,7 @@
           })
           this.msg = 'Your burger order has been processed!'
           setTimeout(()=>{this.msg = ''},2500)
-          this.name=''
+          this.clientName=''
           this.meat=''
           this.bread=''
         this.optionals=[]
@@ -133,6 +133,7 @@
   button:hover,button:focus{
     background: #970101;
     border: 1px solid rgba(128, 128, 128, 0.575);
+    cursor:pointer;
   }
   .message-container{
     color:#004085;
