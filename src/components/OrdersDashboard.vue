@@ -27,7 +27,7 @@
               {{ s.type }}
             </option>
           </select>
-          <button class="delete-btn" @click="deleteBurger(burger.id)">Cancelar</button>
+          <button class="delete-btn" @click="deleteBurger(burger.id)">Remove</button>
         </div>
       </div>
     </div>
@@ -47,7 +47,7 @@
       }
     },
     methods: {
-      async getPedidos() {
+      async getOrders() {
         const req = await fetch('http://localhost:3000/burgers')
         const data = await req.json()
         this.burgers = data
@@ -64,7 +64,7 @@
           method: "DELETE"
         });
          await req.json()
-        this.getPedidos()
+        this.getOrders()
       },
       async updateBurger(event, id) {
         const option = event.target.value;
@@ -79,7 +79,7 @@
       }
     },
     mounted () {
-    this.getPedidos()
+    this.getOrders()
     }
   }
 </script>

@@ -80,7 +80,7 @@
           this.name=''
           this.meat=''
           this.bread=''
-          this.optionals=''
+        this.optionals=[]
       }
     },
     mounted(){
