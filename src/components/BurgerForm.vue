@@ -1,7 +1,7 @@
 <template>
 <div class="form-container">
   <h1>Choose your burger ingredients</h1>
-  <form>
+  <form @submit.prevent="createBurger">
   <div class="input-group">
     <label >
      <span> Client Name</span>
@@ -10,26 +10,24 @@
     <label >
       <span>Choose the bread</span>
       <select name="bread" v-model="bread">
-        <option value="">Pick one bread type</option>
-        <option v-for="bread in breads" :key="bread.id" :value="bread.tipo">
-        {{bread.tipo}}
+        <option v-for="bread in breads" :key="bread.id" :value="bread.type">
+        {{bread.type}}
         </option>
       </select>
     </label>
     <label >
      <span> Choose your hamburger meat</span>
       <select name="meat" v-model="meat">
-        <option value="">Pick one meat type</option>
-        <option v-for="meat in meats" :key="meat.id" :value="meat.tipo">
-        {{meat.tipo}}
+        <option v-for="meat in meats" :key="meat.id" :value="meat.type">
+        {{meat.type}}
         </option>
       </select>
     </label>
     <div class="checkbox-group">
       <span>Select the salads:</span>
-      <label v-for="saladsOptional in saladsOptionals" :key="saladsOptional.id">
-        <input type="checkbox" name="saladsOptionals" :value="saladsOptional.tipo" v-model="saladsOptionals"/>
-      {{saladsOptional.tipo}}
+      <label v-for="saladsOptional in optionalsData" :key="saladsOptional.id">
+        <input type="checkbox" name="optionals" :value="saladsOptional.type" v-model="optionals"/>
+      {{saladsOptional.type}}
       </label>
     </div>
     <button type="submit">Mount</button>
@@ -44,9 +42,10 @@
       return{
         breads:null,
         meats:null,
-        saladsOptionals:null,
+        optionalsData:null,
         status:'requested',
         clientName:'',
+        optionals:[],
         bread:null,
         meat:null,
         msg:null
@@ -56,9 +55,29 @@
       async getIngredients(){
         const reqIngredients= await fetch('http://localhost:3000/ingredients')
         const response = await reqIngredients.json()
-        this.breads= response.paes
-        this.meats= response.carnes
-        this.saladsOptionals= response.opcionais
+        this.breads= response.breads
+        this.meats= response.meats
+        this.optionalsData= response.optionals
+      },
+      async createBurger(){
+          const newBurger= {
+            name:this.name,
+            meat:this.meat,
+            bread:this.bread,
+            optionals:Array.from(this.optionals),
+            status:this.status
+          }
+          const newBurgerJsonFormat = JSON.stringify(newBurger)
+          console.log(newBurgerJsonFormat)
+          await fetch('http://localhost:3000/burgers',{
+              method: 'POST',
+              headers:{"Content-Type": "application/json"},
+              body: newBurgerJsonFormat
+          })
+          this.name=''
+          this.meat=''
+          this.bread=''
+          this.optionals=''
       }
     },
     mounted(){
