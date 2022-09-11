@@ -1,6 +1,7 @@
 <template>
 <div class="form-container">
   <h1>Choose your burger ingredients</h1>
+  <div class="message-container" v-show="this.msg">{{this.msg}}</div>
   <form @submit.prevent="createBurger">
   <div class="input-group">
     <label >
@@ -74,6 +75,8 @@
               headers:{"Content-Type": "application/json"},
               body: newBurgerJsonFormat
           })
+          this.msg = 'Your burger order has been processed!'
+          setTimeout(()=>{this.msg = ''},2500)
           this.name=''
           this.meat=''
           this.bread=''
@@ -130,5 +133,14 @@
   button:hover,button:focus{
     background: #970101;
     border: 1px solid rgba(128, 128, 128, 0.575);
+  }
+  .message-container{
+    color:#004085;
+    background-color: #cce5ff;
+    border:2px solid #88daff;
+    margin: 30px auto;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-weight: bold;
   }
 </style>
